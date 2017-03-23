@@ -13,8 +13,8 @@ func main() {
 		hostname     string
 		nameServerIP string
 	}{}
-	flag.StringVar(&args.hostname, "host", "example.com", "The hostname to fetch the IP address of via a DNS server.")
-	flag.StringVar(&args.nameServerIP, "dns", "8.8.8.8", "The IP address of a DNS server to fetch hostnames from.")
+	flag.StringVar(&args.hostname, "hostname", "example.com", "The hostname to fetch the IP address of via a DNS server.")
+	flag.StringVar(&args.nameServerIP, "with", "8.8.8.8", "The IP address of a DNS server to fetch hostnames from.")
 	flag.Parse()
 
 	c := dns.Client{}
