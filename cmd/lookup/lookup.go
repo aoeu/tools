@@ -16,6 +16,11 @@ func main() {
 	flag.StringVar(&args.hostname, "hostname", "example.com", "The hostname to fetch the IP address of via a DNS server.")
 	flag.StringVar(&args.nameServerIP, "with", "8.8.8.8", "The IP address of a DNS server to fetch hostnames from.")
 	flag.Parse()
+	if len(flag.Args()) > 0 {
+		fmt.Fprintf(os.Stderr, "Unknown arguments were provided, exiting : %v\n", flag.Args())
+		flag.Usage()
+		os.Exit(1)
+	}
 
 	c := dns.Client{}
 	m := dns.Msg{}
